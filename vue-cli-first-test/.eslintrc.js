@@ -22,6 +22,14 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 0,
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    // 设置没有分号报错
+    'semi': ['error', 'always'],
+    // 改变格式化插件格式化后的OK,忽略indent配置
+    'indent': 0,
+    // 不验证===    ==
+    "eqeqeq": 0,
+    // 忽略检测function的name前的空格检测
+    'space-before-function-paren': 0
   }
 }

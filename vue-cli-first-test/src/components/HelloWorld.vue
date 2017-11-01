@@ -1,39 +1,62 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+<div class="hello">
+  <h1>{{ msg }}</h1>
+  <h2>Essential Links</h2>
+  <ul>
+    <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
+    <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
+    <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
+    <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
+    <br>
+    <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
+  </ul>
+  <h2>Ecosystem</h2>
+  <ul>
+    <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
+    <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
+    <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+  </ul>
+</div>
 </template>
 
 <script>
+import {
+  login
+} from '@/api/getData';
 export default {
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App'
-    }
+    };
+  },
+  async created() {
+    let url = {
+      'phone': '17301088769',
+      'password': '123456'
+    };
+    let data = {};
+    const result = await login(url, data);
+    /**
+     * 输入输出的格式
+        %s输出一个字符串
+        %c以字符形式输出单个字符
+        %f 6位小数
+        %d十进制
+        %o八进制
+        %x十六进制
+     * @type {[type]}
+     */
+    console.log('HelloWorld: %o', result);
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
+<style lang="scss" scoped>
+h1,
+h2 {
   font-weight: normal;
 }
 
