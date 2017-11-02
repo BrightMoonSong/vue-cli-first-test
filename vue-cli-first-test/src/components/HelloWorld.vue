@@ -31,24 +31,29 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     };
   },
-  async created() {
+  created() {
     let url = {
       'phone': '17301088769',
       'password': '123456'
     };
     let data = {};
-    const result = await login(url, data);
-    /**
-     * 输入输出的格式
-        %s输出一个字符串
-        %c以字符形式输出单个字符
-        %f 6位小数
-        %d十进制
-        %o八进制
-        %x十六进制
-     * @type {[type]}
-     */
-    console.log('HelloWorld: %o', result);
+    this.submitLogin(url, data);
+  },
+  methods: {
+    async submitLogin(url, data) {
+      const result = await login(url, data);
+      /**
+       * 输入输出的格式
+          %s输出一个字符串
+          %c以字符形式输出单个字符
+          %f 6位小数
+          %d十进制
+          %o八进制
+          %x十六进制
+       * @type {[type]}
+       */
+      console.log('HelloWorld: %o', result);
+    }
   }
 };
 </script>
@@ -57,20 +62,20 @@ export default {
 <style lang="scss" scoped>
 h1,
 h2 {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 li {
-  display: inline-block;
-  margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 a {
-  color: #42b983;
+    color: #42b983;
 }
 </style>
